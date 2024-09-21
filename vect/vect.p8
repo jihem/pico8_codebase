@@ -5,8 +5,9 @@ __lua__
    _._ 
  o|- -|o this file is licensed under cc4-by-nc-sa international license.
   ( l )  to view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
-    =    author: jean-marc "jihem" quれたrれた 2016 - jean-marc.quere@codyssea.com
+    =    author: jean-marc "jihem" quere 2016 - jean-marc.quere@codyssea.com
 --]]
+
 oop={
  new=function(_,o)
   o=o or {}
@@ -144,7 +145,8 @@ end
 
 function _update()
  p1:update()
-end 
+end
+
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

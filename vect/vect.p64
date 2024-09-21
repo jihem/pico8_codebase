@@ -2,7 +2,7 @@
    _._ 
  o|- -|o this file is licensed under cc4-by-nc-sa international license.
   ( l )  to view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
-    =    author: jean-marc "jihem" QUERE - jean-marc.quere@codyssea.com
+    =    author: jean-marc "jihem" QUERE 2024 - jean-marc.quere@codyssea.com
 --]]
 
 function setmetatable_ersatz(t,m)
