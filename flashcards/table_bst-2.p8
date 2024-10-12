@@ -1,0 +1,60 @@
+pico-8 cartridge // http://www.pico-8.com
+version 42
+__lua__
+--[[
+   _._ 
+ o|- -|o this file is licensed under cc4-by-nc-sa international license.
+  ( l )  to view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
+    =    author: jean-marc "jihem" quere 2024 - jean-marc.quere@codyssea.com
+--]]
+
+function _bst_insert(t,k)
+	if (not t) return {v=k}
+	if k<t.v then
+		t.l=_bst_insert(t.l,k)
+	else
+		t.r=_bst_insert(t.r,k)
+	end
+	return t
+end
+function _bst_foreach_asc(t,f)
+	if t then
+	_bst_foreach_asc(t.l, f)
+	f(t.v)
+	_bst_foreach_asc (t.r, f)
+	end
+end
+
+-- ascending pairs iterator
+function asc_pairs(t)
+	local ik,ks,bt = 0, {}
+	for k,_ in pairs(t) do
+		bt=_bst_insert(bt,k)
+	end
+	_bst_foreach_asc(
+		 bt
+		,(function (k) add(ks,k) end)
+	)
+	return function()
+		ik += 1
+		if ik <= #ks then
+			return ks[ik],t[ks[ik]]
+		end
+	end
+end
+
+-- sample
+table={z=3,f="xxx",a=1}
+
+cls()
+for k,v in asc_pairs(table) do
+ print(k.." "..v) 
+end
+
+__gfx__
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00700700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00077000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00077000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00700700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
